@@ -68,12 +68,12 @@ class App extends Component {
   deleteFromDB = idTodelete => {
     let objIdToDelete = null;
     this.state.data.forEach(dat => {
-      if (dat.id == idTodelete) {
+      if (dat.id === idTodelete) {
         objIdToDelete = dat._id;
       }
     });
 
-    axios.delete("http://localhost:3001/api/deleteData", {
+    axios.delete("http://194.168.24.129:3001/api/deleteData", {
       data: {
         id: objIdToDelete
       }
@@ -86,12 +86,12 @@ class App extends Component {
   updateDB = (idToUpdate, updateToApply) => {
     let objIdToUpdate = null;
     this.state.data.forEach(dat => {
-      if (dat.id == idToUpdate) {
+      if (dat.id === idToUpdate) {
         objIdToUpdate = dat._id;
       }
     });
 
-    axios.post("http://localhost:3001/api/updateData", {
+    axios.post("http://194.168.24.129:3001/api/updateData", {
       id: objIdToUpdate,
       update: { message: updateToApply }
     });

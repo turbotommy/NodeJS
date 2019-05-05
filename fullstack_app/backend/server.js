@@ -12,7 +12,7 @@ app.use(cors());
 const router = express.Router();
 
 // this is our MongoDB database
-const dbRoute = "mongodb://10.0.75.3/mongotest";
+const dbRoute = "mongodb://localhost/mongotest";
 
 // connects our back end code with the database
 mongoose.connect(
@@ -87,4 +87,6 @@ router.post("/putData", (req, res) => {
 app.use("/api", router);
 
 // launch our backend into a port
-app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
+app.listen(API_PORT, "0.0.0.0", () => {
+  return console.log(`LISTENING ON PORT ${API_PORT}`);
+});
